@@ -22,41 +22,22 @@
             </div>
             <nav id="menu">
                 <ul>
-                    <a href="#aktuelle-situation">
+                <?php
+                $locations = get_nav_menu_locations();
+                $menu = wp_get_nav_menu_object($locations['header-menu']);
+                $menu_items = wp_get_nav_menu_items( $menu->term_id, array('order' => 'DESC'));
+                for ($i = 1; $i < sizeof($menu_items); $i+=1) {
+                    $menu_item = $menu_items[$i];
+                    $id = get_post_meta($menu_item->ID, '_menu_item_object_id', true);
+                    $section = get_page($id);?>
+                    <a href="#<?php echo $section->post_name; ?>">
                         <li>
-                            aktuelle situation
+                            <?php echo $section->post_title; ?>
                             <hr class="bg-secondary" />
                             <hr class="bg-secondary" />
                         </li>
                     </a>
-                    <a href="#unsere-forderungen">
-                        <li>
-                            unsere forderungen
-                            <hr class="bg-secondary" />
-                            <hr class="bg-secondary" />
-                        </li>
-                    </a>
-                    <a href="#aktiv-werden">
-                        <li>
-                            aktiv werden
-                            <hr class="bg-secondary" />
-                            <hr class="bg-secondary" />
-                        </li>
-                    </a>
-                    <a href="#persoenliche-einblicke">
-                        <li>
-                            persönliche einblicke
-                            <hr class="bg-secondary" />
-                            <hr class="bg-secondary" />
-                        </li>
-                    </a>
-                    <a href="#unterstuetzer_innen-netzwerk">
-                        <li>
-                            unterstützer*innen / netzwerk
-                            <hr class="bg-secondary" />
-                            <hr class="bg-secondary" />
-                        </li>
-                    </a>
+                <?php } ?>
                 </ul>
             </nav>
         </header>

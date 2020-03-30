@@ -28,6 +28,8 @@ a {
     position:relative;
     width:100%;
     overflow:hidden;
+    top:0px;
+    transition:top linear 200s;
 }
 
 header {
@@ -262,6 +264,10 @@ section {
     padding-bottom:18rem;
 }
 
+section > div {
+    width:60%;
+}
+
 section p {
     text-align:justify;
     line-height:1.6;
@@ -277,25 +283,51 @@ section h2 {
     margin-top:4rem;
 }
 
-section div {
+section > div.intro {
+    margin-bottom:10rem;
+}
+
+section > div {
     position:relative;
     width:60%;
 }
 
-section div.left {
-    left:0%;
+section > div.left {
+    left:0;
 }
 
-section div.center {
+section > div.center {
     left:20%;
 }
 
-section div.right {
+section > div.right {
     left:40%;
 }
 
-section div.intro {
-    margin-bottom:10rem;
+section > div > div > blockquote,
+section > div > div > h2,
+section > div > div > p {
+    position:relative;
+}
+
+section > div.wp-block-group > div > h2 {
+    text-align:center;
+}
+
+section > div.wp-block-group > div > p {
+    text-align:justify;
+}
+
+section blockquote {
+    margin:0;
+}
+
+section hr {
+    background-color:#ff3399;
+}
+
+iframe {
+    margin-top:0;
 }
 
 section:nth-of-type(4) div.intro {
@@ -456,15 +488,29 @@ iframe {
 }
 
 .news ul li {
-    margin-bottom:0.8rem;
+    margin-bottom:1.5rem;
 }
 
 .news ul li::before {
-    content: "▪ ";
+    content: "▰ ";
     font-size:1.2rem;
     color: #ff3399;
+    text-indent:2rem;
+    margin-left:-2rem;
+}
+
+.news ul li p {
+    margin-top:0.2rem;
+    margin-bottom:0.2rem;
+    margin-left:1rem;
+}
+
+.news ul li p::before {
+    content: "◄ ";
+    font-size:1.2rem;
+    color: #ffd526;
     text-indent:1rem;
-    margin-left:-1rem;
+    margin-left:-1.4rem;
 }
 
 .news hr.bottom {
@@ -645,19 +691,19 @@ footer a {
         width:90%;
     }
 
-    section div {
+    section > div {
         width:100%;
     }
 
-    section div.left {
+    section > div.left {
         left:0%;
     }
 
-    section div.center {
+    section > div.center {
         left:0%;
     }
 
-    section div.right {
+    section > div.right {
         left:0%;
     }
 
